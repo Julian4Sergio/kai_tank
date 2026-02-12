@@ -1,0 +1,56 @@
+﻿# Python bytecode/cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Packaging / distribution
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Test / lint / type caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.hypothesis/
+.coverage
+.coverage.*
+htmlcov/
+
+# IDE / editor
+.idea/
+.vscode/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local runtime data
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# AI-only local context docs
+AGENTS.md
+PROJECT_CONTEXT.md
