@@ -34,6 +34,12 @@ htmlcov/
 .vscode/
 *.code-workspace
 
+# Web build artifacts
+node_modules/
+coverage/
+*.tsbuildinfo
+dist/
+
 # OS files
 .DS_Store
 Thumbs.db

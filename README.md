@@ -1,57 +1,36 @@
-﻿# Tank Battle (Python + pygame)
+# Kai Tank (Web)
 
-A local single-player tank battle game with 5 progressive levels, difficulty-based scoring, and SQLite leaderboard.
+Browser version of the tank battle game.  
+Gameplay kept from the original desktop version:
+- 2-step menu (name + difficulty)
+- 5 progressive levels
+- 3 lives + short respawn invincibility
+- brick / steel obstacles
+- score rating and difficulty leaderboard
 
-## Standard Project Layout (src)
-```text
-tank_game/
-|- src/
-|  |- tank_game/
-|     |- __init__.py
-|     |- __main__.py
-|     |- game.py
-|     |- entities.py
-|     |- input_state.py
-|     |- scoring.py
-|     |- storage.py
-|     |- namegen.py
-|     |- config.py
-|- tests/
-|- pyproject.toml
-|- tank_battle.py
-```
+## Tech
+- Vanilla HTML/CSS/JavaScript
+- Canvas 2D rendering
+- IndexedDB for browser-side result storage
+- GitHub Pages deployment workflow
 
-## Quick Start
+## Run Locally
+Any static server works. Example:
+
 ```powershell
-py -3 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-python -m pip install -e .
+py -3 -m http.server 8080
 ```
 
-Run game (recommended):
-```powershell
-tank-battle
-```
-
-Alternative runs:
-```powershell
-python -m tank_game
-python tank_battle.py
-```
-
-Run tests:
-```powershell
-pytest -q
-```
+Open `http://localhost:8080`.
 
 ## Controls
 - Move: `WASD` or arrow keys
 - Fire: `Space`
-- Return to menu: `R`
+- Back to menu: `R`
 
-## Notes
-- Local data is stored in `game_stats.db`.
-- Core tuning constants are in `src/tank_game/config.py`.
-- Rating caps: Easy 7.5, Medium 9.0, Hard 10.0.
+## Deploy (GitHub Pages)
+This repo includes `.github/workflows/pages.yml`.
+
+1. Push to `main`
+2. In GitHub repo settings, enable **Pages** with source **GitHub Actions**
+3. Workflow publishes the site automatically

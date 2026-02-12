@@ -1,0 +1,166 @@
+:root {
+  --bg: #10161f;
+  --bg-soft: #172335;
+  --line: #283a51;
+  --text: #e6efff;
+  --accent: #58e09a;
+  --warn: #ff8f72;
+  --gold: #f4d86b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 700px at 20% -20%, #2b4670 0%, var(--bg) 55%),
+    linear-gradient(120deg, #0d1219 0%, #121a24 100%);
+}
+
+.app {
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 18px;
+}
+
+.panel,
+.playfield {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgb(26 38 58 / 80%) 0%, rgb(16 22 31 / 90%) 100%);
+}
+
+.panel {
+  padding: 16px;
+}
+
+h1 {
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin: 6px 0 14px;
+  color: #b8c8dc;
+}
+
+.menu {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+}
+
+input,
+select,
+button {
+  height: 40px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  padding: 0 10px;
+  background: #111b2a;
+  color: var(--text);
+}
+
+button {
+  cursor: pointer;
+  border-color: #406088;
+  background: linear-gradient(180deg, #2a4e7a 0%, #1b3658 100%);
+  font-weight: 700;
+}
+
+.board {
+  margin-top: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+#best-rating {
+  font-size: 12px;
+  color: var(--gold);
+}
+
+#leaderboard {
+  margin: 0;
+  padding-left: 18px;
+  min-height: 140px;
+  display: grid;
+  gap: 4px;
+  color: #d2e1f4;
+}
+
+.tip {
+  margin: 14px 0 0;
+  font-size: 12px;
+  color: #9cb1cc;
+}
+
+.playfield {
+  position: relative;
+  padding: 8px;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 70px);
+  border-radius: 10px;
+  display: block;
+  border: 1px solid #30496c;
+  background: #11171f;
+}
+
+#hud,
+#banner {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  pointer-events: none;
+}
+
+#hud {
+  top: 14px;
+  font-size: 14px;
+  color: #f1f6ff;
+  text-shadow: 0 0 8px rgb(0 0 0 / 50%);
+}
+
+#banner {
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--accent);
+  text-shadow: 0 4px 30px rgb(0 0 0 / 70%);
+}
+
+@media (max-width: 980px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+}

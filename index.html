@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kai Tank - Web</title>
+  <link rel="stylesheet" href="./web/styles.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="panel">
+      <h1>Kai Tank</h1>
+      <p class="subtitle">5 levels · 3 lives · ranked by difficulty</p>
+
+      <form id="menu-form" class="menu">
+        <label>
+          Player Name
+          <input id="player-name" maxlength="16" autocomplete="off" />
+        </label>
+
+        <label>
+          Difficulty
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+
+        <button type="submit">Start Battle</button>
+      </form>
+
+      <section class="board">
+        <div class="board-header">
+          <h2>Leaderboard</h2>
+          <span id="best-rating">Top Rating: 0.00</span>
+        </div>
+        <ol id="leaderboard"></ol>
+      </section>
+
+      <p class="tip">Move: WASD/Arrows · Fire: Space · Menu: R</p>
+    </section>
+
+    <section class="playfield">
+      <canvas id="game-canvas" width="960" height="600"></canvas>
+      <div id="hud"></div>
+      <div id="banner"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./web/main.js"></script>
+</body>
+</html>
