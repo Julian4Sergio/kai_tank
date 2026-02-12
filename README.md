@@ -1,7 +1,10 @@
-# Kai Tank (Web)
+# Kai Tank (Monorepo)
 
-Browser version of the tank battle game.  
-Gameplay kept from the original desktop version:
+Repository layout:
+- `frontend/`: browser game (static HTML/CSS/JS)
+- `backend/`: Go API scaffold (`/health`, score APIs)
+
+Gameplay in frontend keeps the original desktop behavior:
 - 2-step menu (name + difficulty)
 - 5 progressive levels
 - 3 lives + short respawn invincibility
@@ -10,18 +13,45 @@ Gameplay kept from the original desktop version:
 
 ## Tech
 - Vanilla HTML/CSS/JavaScript
-- Canvas 2D rendering
-- IndexedDB for browser-side result storage
+- Go (`net/http`) backend scaffold
 - GitHub Pages deployment workflow
 
-## Run Locally
-Any static server works. Example:
+## Run Frontend Locally
+Serve `frontend/` as static files.
+
+Node.js example:
 
 ```powershell
-py -3 -m http.server 8080
+npx.cmd serve frontend -l 8080
+```
+
+Python example:
+
+```powershell
+py -3 -m http.server 8080 --directory frontend
 ```
 
 Open `http://localhost:8080`.
+
+### Troubleshooting (PowerShell + Node.js)
+If you see:
+`npx : ... npx.ps1 cannot be loaded because running scripts is disabled on this system`
+
+Use `npx.cmd` instead of `npx` in PowerShell:
+
+```powershell
+npx.cmd serve frontend -l 8080
+```
+
+## Run Backend Locally
+Backend requires Go 1.22+.
+
+```powershell
+cd backend
+go run ./cmd/server
+```
+
+Default backend URL is `http://localhost:8081`.
 
 ## Controls
 - Move: `WASD` or arrow keys
@@ -33,4 +63,4 @@ This repo includes `.github/workflows/pages.yml`.
 
 1. Push to `main`
 2. In GitHub repo settings, enable **Pages** with source **GitHub Actions**
-3. Workflow publishes the site automatically
+3. Workflow publishes `frontend/` automatically

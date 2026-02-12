@@ -1,7 +1,7 @@
 # User Manual
 
 ## Start
-1. Open the web page (`index.html`) via a static server.
+1. Serve folder `frontend/` as static files, then open `frontend/index.html`.
 2. Enter player name.
 3. Select difficulty and click **Start Battle**.
 
