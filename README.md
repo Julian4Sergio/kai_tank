@@ -53,6 +53,14 @@ go run ./cmd/server
 
 Default backend URL is `http://localhost:8081`.
 
+Frontend will call backend at `http://localhost:8081` by default.
+If you need another API URL, set it in browser console:
+
+```js
+localStorage.setItem("api_base_url", "http://localhost:9000");
+location.reload();
+```
+
 ## Controls
 - Move: `WASD` or arrow keys
 - Fire: `Space`

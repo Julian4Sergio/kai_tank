@@ -80,12 +80,23 @@ func (s *Server) handleScores(w http.ResponseWriter, r *http.Request) {
         return
     }
 
+    if payload.PlayTimeSec < 0 || payload.Deaths < 0 || payload.BulletsUsed < 0 {
+        http.Error(w, "playTimeSec/deaths/bulletsUsed must be non-negative", http.StatusBadRequest)
+        return
+    }
+
     saved := s.scores.Add(model.Score{
-        PlayerName: payload.PlayerName,
-        Difficulty: payload.Difficulty,
-        Rating:     payload.Rating,
-        Kills:      payload.Kills,
-        TimeMs:     payload.TimeMs,
+        PlayerName:  payload.PlayerName,
+        Difficulty:  payload.Difficulty,
+        Rating:      payload.Rating,
+        Kills:       payload.Kills,
+        Deaths:      payload.Deaths,
+        BulletsUsed: payload.BulletsUsed,
+        LevelReached: payload.LevelReached,
+        Victory:     payload.Victory,
+        PlayTimeSec: payload.PlayTimeSec,
+        TimeMs:      payload.TimeMs,
+        PlayedAt:    payload.PlayedAt,
     })
 
     writeJSON(w, http.StatusCreated, saved)
